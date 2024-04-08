@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c9924fbb1e.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body id="tela" onload="carrosel()">
+    <!--------------------------------------ESTRUTURA REFERENTE A TELA DE CADASTRO--------------------------------------------------->
+    <div id="corpoCadastro">
+        <div id="mensagem_cadastro">
+            <p id="msg_cadastro"></p>
+            <i class="fa-solid fa-xmark" onclick="fechar_msg_cadastro()"></i>
+        </div>
+
+        <div id="logo_cadastro">
+            <img src="imagens/logo brocados burger png.png" alt="Logomarca">
+        </div>
+
+        <div id="formularioCadastro">
+            <div id="mainCadastro">
+                <div id="titulo_cadastro">
+                    <h1>Cadastro</h1>
+                    <i class="fa-solid fa-xmark" onclick="esconder_cadastro()"></i>
+                </div>
+                
+                <div id="dadosCadastro">
+                    <div>
+                        <label for="user">Usuário</label>
+                        <input type="text" class="dadosUsuario" name="dados" id="user" maxlength="27">
+                    </div>
+                    <div>
+                        <label for="senha">Senha</label>
+                        <input type="password" class="dadosUsuario" name="dados" id="senha" maxlength="6">  
+                    </div>
+                    <div>
+                        <label for="confirma_senha">Confirmar Senha</label>
+                        <input type="password" class="dadosUsuario" name="dados" id="confirma_senha" maxlength="6">
+                    </div>   
+                </div>
+                
+                <div id="botoes_cadastro">
+                    <button onclick="cadastrar()">Cadastrar</button>
+                    <button onclick="deletarCadastro()">Deletar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Nomes dinâmicos que irão possuir o mesmo valor 
+    dos nomes dos burgueres que serão adicionados 
+    ao carrinho para depois aparecerem no whatszap-->
+    <p id="nomeTr1" class="nomeDinamico"></p>
+    <p id="nomeTr2" class="nomeDinamico"></p> 
+    <p id="nomeTr3" class="nomeDinamico"></p> 
+    <p id="nomeTr4" class="nomeDinamico"></p> 
+    <p id="nomeAt1" class="nomeDinamico"></p> 
+    <p id="nomeAt2" class="nomeDinamico"></p> 
+    <p id="nomeAt3" class="nomeDinamico"></p> 
+    <p id="nomeDc1" class="nomeDinamico"></p> 
+    <p id="nomeDc2" class="nomeDinamico"></p> 
+    <p id="nomeDc3" class="nomeDinamico"></p> 
+    <p id="nomeCb1" class="nomeDinamico"></p> 
+    <p id="nomeCb2" class="nomeDinamico"></p>
+    <p id="nomeCb3" class="nomeDinamico"></p>
+    <!--Nomes dinâmicos das subopcões dos radios escolhidos-->
+    <p id="moussie_escolhido" class="subopcao_escolhida"></p>
+    <p id="sorvete_escolhido" class="subopcao_escolhida"></p>
+    <p id="empadao_escolhido" class="subopcao_escolhida"></p>
+    <p id="suco_escolhido" class="subopcao_escolhida"></p>
+    <p id="refri_escolhido" class="subopcao_escolhida"></p>
+    <p id="coquetel_escolhido" class="subopcao_escolhida"></p>
+    <!---preços dinâmicos dos itens escolhidos-->
+    <p id="preco_dinamicoS1" class="preco_dinamico"></p>
+    <p id="preco_dinamicoS2" class="preco_dinamico"></p>
+    <p id="preco_dinamicoS3" class="preco_dinamico"></p>
+    <p id="preco_dinamicoS4" class="preco_dinamico"></p>
+    <p id="preco_dinamicoE1" class="preco_dinamico"></p>
+    <p id="preco_dinamicoE2" class="preco_dinamico"></p>
+    <p id="preco_dinamicoE3" class="preco_dinamico"></p>
+    <p id="preco_dinamicoSo1" class="preco_dinamico"></p>
+    <p id="preco_dinamicoSo2" class="preco_dinamico"></p>
+    <p id="preco_dinamicoSo3" class="preco_dinamico"></p>
+    <p id="preco_dinamicoB1" class="preco_dinamico"></p>
+    <p id="preco_dinamicoB2" class="preco_dinamico"></p>
+    <p id="preco_dinamicoB3" class="preco_dinamico"></p>
+    <!----subtotais dinâmicos dos itens escolhidos-->
+    <p id="subtotal_dinamicoS1" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoS2" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoS3" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoS4" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoE1" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoE2" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoE3" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoSo1" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoSo2" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoSo3" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoB1" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoB2" class="subtotal_dinamico"></p>
+    <p id="subtotal_dinamicoB3" class="subtotal_dinamico"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!------------------------------------------------0.Estrutura do cabeçalho------------------------------------------------->
+    <header>
+        <div id="logo-contatos-menulateral">
+            <div id="conteudoCabecalho">
+                <img src="imagens/logo brocados burger png.png" alt="Logomarca">
+                
+                <nav>
+                    <ul id="contatos">
+                        <li><a href="https://wa.me/5592991635554" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a></li>
+                        <li><a href="https://www.google.com.br/maps/place/Restaurante+Divino+Espeto/@-3.0797243,-60.1957652,12z/data=!4m10!1m2!2m1!1srua+da+prosperidade+alvorada,+manaus+divino+espeto!3m6!1s0x926c11ab7e45cedb:0xc6293ab44305b37e!8m2!3d-3.0797243!4d-60.0515696!15sCjJydWEgZGEgcHJvc3BlcmlkYWRlIGFsdm9yYWRhLCBtYW5hdXMgZGl2aW5vIGVzcGV0b1ozIjFydWEgZGEgcHJvc3BlcmlkYWRlIGFsdm9yYWRhIG1hbmF1cyBkaXZpbm8gZXNwZXRvkgEKcmVzdGF1cmFudOABAA!16s%2Fg%2F11scs1nq1w?entry=ttu" target="_blank"><i class="fa-solid fa-location-dot"></i></a></li>
+                        <li><a href="https://www.instagram.com/divinoespeto_am/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a></li>
+                    </ul>   
+                </nav>
+                <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; width: 100px;" onclick="mostrar_cadastro()">
+                    <nav id="usuario"><a href="#"><i class="fa-solid fa-user"></i></i></a></nav>
+                    <p id="nome_usuario">Cadastro</p>
+                </div>
+                
+            </div>
+        </div>
+        
+    
+        <label for="caixaInput" id="tresRiscos">
+            <i class="fa-solid fa-bars" onclick="abrirMenuLateral()"></i>
+        </label>
+    
+        <input type="checkbox" id="caixaInput">
+        
+        
+
+        
+        
+        
+        
+        <!------------------------------------ESTRUTURA REFERENTE AO RELÓGIO---------------------------->
+        <div id="relogio" style="position: absolute; top: 110px; right: 30px;"></div>    
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-----------------------------------------1.ESTRUTURA REFERENTE AO MENU LATERAL---------------------------------------------->        
+        <nav id="menuLateral">
+            <!-----------------ESTRUTURA REFERENTE AO HISTÓRICO DE COMPRAS----------------->
+            <div id="historico_compras" style="height: 100%;">
+                <div>
+                    <h1><i class="fa-solid fa-clock-rotate-left"></i> Histórico de Compras</h1>
+                    <i class="fa-solid fa-xmark" onclick="fecharHistorico()" id="fecha_historico"></i>
+                </div>
+                <hr>
+                <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75%; max-height: 76%;">
+                    <P id="avisoHistorico">Sem histórico de compras</P>                   
+                    <div id="historicos" style="width: 100%; height: 100%; overflow: scroll; padding-left: 20px; margin-top: 0;">
+                        
+                    </div>
+
+                    <div id="btn_historico">
+                        <button id="botao_home" onclick="vontar_telaPrincipal()"><i class="fa-solid fa-house"></i> Home</button>
+                        <button id="botao_apaga_hidtorico" onclick="apagar_historico()"><i class="fa-solid fa-trash"></i> Apagar Histórico</button>
+                    </div>
+                    
+                </main>
+            </div>
+            <!----------------------------------------------------------------------------->
+
+            <div id="usuario-e-x">
+                <nav>
+                    <i class="fa-solid fa-user"></i></i>
+                    <p id="nome_usuario2">User</p>
+                </nav>
+
+                <i class="fa-solid fa-xmark" onclick="fecharMenuLateral()" id="fecharMenuLateral"></i>   
+            </div>
+
+            <hr>
+
+            <P id="mostraHistorico" onclick="mostrar_historico_compras()"><i class="fa-solid fa-clock-rotate-left"></i> Histórico de Compras</P>
+             
+            <ul>
+                <li id="subMenu0"><a href="#" class="apenasSelecionar"><i class="fa-solid fa-people-group"></i>Desenvolvedor</a> <ul id="subMenuEquipe"><li><a href="#">Jordan Victor Barreiros da Costa: Programador Web em busca de aprimorar os meus conhecimentos e ganhar mais experiência através de projetos em equipe. Já trabalhei como estagiário na Secretaria Municipal de Saúde de Manaus, dando apoio no desenvolvimento Web Front-End e Back-End, utilizando PHP, Laravel, PostgreSQL, Javascript, HTML e CSS para criar interfaces e algumas funcionalidades em sistemas de saúde, além disso, já participei de projetos acadêmicos.</a></li></ul> </li>
+                <li id="subMenu1"><a href="#" class="apenasSelecionar"><i class="fa-solid fa-lightbulb"></i>Sobre</a>  <ul id="subMenuSobre"><li> <a href="#">Esse projeto faz parte do trabalho de Atividades Práticas Interdisciplinares de Extensão II do curso de Análise e Desenvolvimento de Sistemas</a> </li></ul> </li>
+                <li id="subMenu2"><a href="#" class="apenasSelecionar"><i class="fa-solid fa-location-dot"></i>Local</a>   <ul id="subMenuLocal"><li><a href="#">manaus/AM - Alvorada 2 - Rua da Prosperidade, 377</a></li></ul> </li>
+                <li id="subMenu3"><a href="#" class="apenasSelecionar"><i class="fa-solid fa-bullseye"></i> Objetivo</a>   <ul id="subMenuObjetivo"><li><a href="#">Fazer com que a pessoa que possuir esse aplicativo tenha mais facilidade em vender os seus produtos, pois ela terá a presença online da sua empresa, além disso, a pessoa terá o processo de vendas de sua empresa automatizado</a></li></ul> </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <main>
+        <!------------------------- ESTRUTURA DO FORMULÁRIO COM O FUNDO ESCURO --------------------------------->
+        <div id="FundoEscuroDoFormulario"></div> <!--Estrutura do fundo escuro do formulário-->
+
+        <div id="modoPagamento-localizacao-botao"> <!--Estrutura Referente ao formulário de dados pessoais-->
+            <div id="corpoFormulario">
+                <i class="fa-solid fa-xmark" onclick="fecharFormulario()" id="fecharFormulario"></i>
+                <div id="totalFormulario">
+                    <div id="total_a_pagar">
+                        <p style="font-size: 10pt;">Total:</p>
+                        <h2 id="totalDoFormulario"></h2>
+                    </div>
+                    
+                    <div>
+                        <div>
+                            <input type="password" id="senha_form" placeholder="Senha Cadastro" maxlength="6" required>
+                            <button onclick="copiar_senha()">Usar</button>
+                        </div>     
+                    </div>        
+                </div>
+                
+                <hr>
+                
+                <form>
+                    <p>Método de pagamento:</p>
+                    <div id="metodosPagamento">
+                        <input type="radio" id="pix" name="opcao" value="Pix" checked>
+                        <label for="pix">Pix</label>
+                        <input type="radio" id="dinheiro" name="opcao" value="Dinheiro">
+                        <label for="dinheiro">Dinheiro</label>
+                        <input type="radio" id="credito" name="opcao" value="Crédito">
+                        <label for="credito">Crédito</label>
+                        <input type="radio" id="debito" name="opcao" value="Débito">
+                        <label for="debito">Débito</label>
+
+                        <div>
+                            <input type="text" placeholder="Chave Pix" id="chavePix" class="senha" name="password" value="jordanvictor63@gmail.com" readonly>
+                            <input type="number" placeholder="Quantia em Reais" id="din" class="senha" name="number">
+                            <input type="text" placeholder="Senha Cartão" id="cart" class="senha" name="password" value="Cartão" readonly>
+                        </div>  
+                    </div>
+
+                    <hr>
+                    
+                    <p>Sua Localização:</p>
+                    <div id="localizacao">
+                        <input type="text" id="bairro" name="name" placeholder="Bairro" required>
+                        <input type="text" id="rua" name="name" placeholder="Rua" required>
+                        <input type="number" id="casa" name="name" placeholder="Casa" required>
+                    </div>
+
+                    <hr style="margin-top: 20px;">
+                    <p>Observações</p>
+                    <input type="text-area" placeholder="Observações (Opcional)" id="observacoes">
+
+                    <input type="text" id="precoBurger" style="display: none;">                   
+                </form> 
+                <a id="enviarZap" target="_blank"><button type="submit" id="concluir" onclick="concluir()">PEDIR</button></a>
+            </div>  
+        </div>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+
+
+
+
+
+
+       
+       
+        <!-- ------------------------------------ 2.ESTRUTURAS DO CARROSEL DE IMAGENS ------------------------------------- -->
+        <h1 id="FraseBonitinha"></h1> 
+        <p id="cont" style="display: none;">0</p>
+        <div id="carrosel-imagens">
+            <div id ="contador">0</div>
+            <img id="imagemCorrente" src="" alt="Avisos">
+        </div>
+        <!----------Slide indicate radius---------->
+        <div id="slideRadius">
+            <div class="radioIndic"><div name="radioIndicator" class="radioIndicator"></div></div>
+            <div class="radioIndic"><div name="radioIndicator" class="radioIndicator"></div></div>
+            <div class="radioIndic"><div name="radioIndicator" class="radioIndicator"></div></div>
+            <div class="radioIndic"><div name="radioIndicator" class="radioIndicator"></div></div>
+            <div class="radioIndic"><div name="radioIndicator" class="radioIndicator"></div></div>        
+        </div>
+        <!----------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ------------------------------- 3. ESTRUTURAS DO MENU DE OPÇÕES DE TIPOS BURGERS ------------------------------- --> 
+        <div id="opcoesMenu">
+            <div>
+                <p id="TRADICIONAIS" onclick="mostrarTradicionais()">Pratos Simples</p> <!--FUNÇÃO AQUI:Mostrar as opções de menu de hamburgers tradicionias-->
+            </div>
+            <div>
+                <p id="ARTESANAIS" onclick="mostrarArtesanais()">Espetos</p> <!--FUNÇÃO AQUI:Mostrar as opções de menu de hamburgers artesanais-->
+            </div>
+            <div>
+                <p id="DOCES" onclick="mostrarDoces()">Sobremesas</p> <!--FUNÇÃO AQUI:Mostrar as opções de menu de hamburgers doces-->
+            </div>
+            <div>
+                <p id="COMBOS" onclick="mostrarCombos()">Bebidas</p> <!--FUNÇÃO AQUI:Mostrar as opções de combos-->  
+            </div>
+        </div>
+
+        
+
+
+
+        <!-- 3.1 estrutura das opções de hambúrgueres tradicionais -->
+        <div id="tradicionais">  
+            <!-- Estrutura da opção 1 de burger tradicional -->
+            <div id="bt1">
+                <h1>Capa de Filé</h1>
+                <div id="tradicional1">
+                    <!---- Estrututra dos igredientes----> 
+                    <div id="igredientes-tradicional1" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesTradicional1()" id="fecharIgredientesTradicioanl1"></i>
+                        </div>
+                        
+                        <p class="lista">Carne temperada, arroz com Brócolis, maionese, vinagrete, farofa e vatapá de camarão.</p>
+                    </div>
+                    
+                    <div id="img-e-lista-tradicional1">
+                        <img src="Burgers tradicionais/tradicional1.jpg" alt="burger tradicional">
+                        <!--Falta fazer a função de apararecer a lista de igredientes-->
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesTradicional1()" id="mostrarIgredientesTradicional1">
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-tradicional1">
+                        <p id="preço-tradicional1">20,00$</p>
+                        <input type="number" id="qtdTradicional1" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                        <button onclick="addTradicional1()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_simples1"></i>     
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <!-- Estrutura da opção 2 de burger tradicional -->
+            <div id="bt2">
+                <h1>Contra - Filé</h1>
+                <div id="tradicional2">
+                    
+                    <div id="igredientes-tradicional2" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesTradicional2()" id="fecharIgredientesTradicioanl2"></i>
+                        </div>
+                        
+                        <p class="lista">Carne temperada, arroz com Brócolis, maionese, vinagrete, farofa e vatapá de camarão.</p>
+                    </div>
+
+                    <div id="img-e-lista-tradicional2">
+                        <img src="Burgers tradicionais/tradicional2.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesTradicional2()" id="mostrarIgredientesTradicional2">   
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-tradicional2">
+                        <p id="preço-tradicional2">25,00$</p>
+                        <input type="number" id="qtdTradicional2" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1" required>
+                        <button onclick="addTradicional2()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_simples2"></i>     
+                    </div>
+                </div> 
+            </div>
+
+
+            <!-- Estrutura da opção 3 de burger tradicional -->
+            <div id="bt3">
+                <h1> Carne com Bacon</h1>
+                <div id="tradicional3">
+                    
+                    <div id="igredientes-tradicional3" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesTradicional3()" id="fecharIgredientesTradicioanl3"></i>
+                        </div>
+                        
+                        <p class="lista">Carne temperada, arroz com brócolis, maionese, vinagrete, farofa, vatapá de camarão e batata frita.</p>
+                    </div>
+
+                    <div id="img-e-lista-tradicional3">
+                        <img src="Burgers tradicionais/tradicional3.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesTradicional3()" id="mostrarIgredientesTradicional3"> 
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-tradicional3">
+                        <p id="preço-tradicional3">30,00$</p>
+                        <input type="number" id="qtdTradicional3" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1" required>
+                        <button onclick="addTradicional3()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_simples3"></i>     
+                    </div>
+                </div> 
+            </div>
+
+
+            <!-- Estrutura da opção 4 de burger tradicional -->
+            <div id="bt4">
+                <h1>Carne com Calabresa</h1>
+                <div id="tradicional4">
+                    
+                    <div id="igredientes-tradicional4" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesTradicional4()" id="fecharIgredientesTradicioanl4"></i>
+                        </div>
+                        
+                        <p class="lista">Carne temperada, arroz com brócolis, maionese, vinagrete, ervilha, milho e molho especial.</p>
+                    </div>
+
+                    <div id="img-e-lista-tradicional4">
+                        <img src="Burgers tradicionais/tradicional4.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesTradicional4()" id="mostrarIgredientesTradicional4">   
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-tradicional4">
+                        <p id="preço-tradicional4">26,00$</p>
+                        <input type="number" id="qtdTradicional4" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                        <button onclick="addTradicional4()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_simples4"></i>     
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- 3.2 estrutura das opções de hambúrgueres artesanais -->
+        <div id="artesanais">  
+            <!-- Estrutura da opção 1 de burger artesanal -->
+            <div id="ba1">
+                <h1>Coração de Frango</h1>
+                <div id="artesanal1">
+                    
+                    <div id="igredientes-artesanal1" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesArtesanal1()" id="fecharIgredientesArtesanal1"></i>
+                        </div>
+                        
+                        <p class="lista">Tempero de molho madeira, arroz com brócolis, maionese, vinagrete, farofa, feijão tropeiro, batata frita e brócolis.</p>
+                    </div>
+
+                    <div id="img-e-lista-artesanal1">
+                        <img src="Burgers artesanais/artesanal1.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesArtesanal1()" id="mostrarIgredientesArtesanal1">
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-artesanal1">
+                        <p id="preço-artesanal1">28,00$</p>
+                        <input type="number" id="qtdArtesanal1" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1" required>
+                        <button onclick="addArtesanal1()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_espeto1"></i>     
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <!-- Estrutura da opção 2 de burger artesanal -->
+            <div id="ba2">
+                <h1>Filé de Frango com Bacon</h1>
+                <div id="artesanal2">
+                    
+                    <div id="igredientes-artesanal2" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesArtesanal2()" id="fecharIgredientesArtesanal2"></i>
+                        </div>
+                        
+                        <p class="lista">Arroz com brócolis, feijão, farofa, maionese e salada.</p>
+                    </div>
+
+                    <div id="img-e-lista-artesanal2">
+                        <img src="Burgers artesanais/artesanal 2.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesArtesanal2()" id="mostrarIgredientesArtesanal2">   
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-artesanal2">
+                        <p id="preço-artesanal2">15,00$</p>
+                        <input type="number" id="qtdArtesanal2" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1" required>
+                        <button onclick="addArtesanal2()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger simples 1-->
+                        <i class="fa-solid fa-check checado" id="checado_espeto2"></i>     
+                    </div>
+                </div> 
+            </div>
+
+
+            <!-- Estrutura da opção 3 de burger artesanal -->
+            <div id="ba3">
+                <h1>Coxinha da Asa</h1>
+                <div id="artesanal3">
+                    
+                    <div id="igredientes-artesanal3" class="igredientes">
+                        
+                        <div class="fecharIgredientes">
+                            <p><strong>GUARNIÇÃO:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesArtesanal3()" id="fecharIgredientesArtesanal3"></i>
+                        </div>
+                        
+                        <p class="lista">Arroz, feijão, macarrão, farofa e salada.</p>
+                    </div>
+
+                    <div id="img-e-lista-artesanal3">
+                        <img src="Burgers artesanais/artesanal 3.jpg" alt="burger tradicional">
+                        <input type="button" value="Guarnição" class="botaoMostrarIgredientes" onclick="mostrarIgredientesArtesanal3()" id="mostrarIgredientesArtesanal3">
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-artesanal3">
+                        <p id="preço-artesanal3">12,00$</p>
+                        <input type="number" id="qtdArtesanal3" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1" required>
+                        <button onclick="addArtesanal3()"> <i class="fa-solid fa-cart-plus"></i> Adicionar </button> <!-- função add burger artesanal 3-->
+                        <i class="fa-solid fa-check checado" id="checado_espeto3"></i>     
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- 3.3 estrutura das opções de hambúrgueres doces -->
+        <div id="doces">  
+            <!-- Estrutura da opção 1 de burger doce -->
+            <div id="bd1">
+                <h1>Mousse (400ml)</h1>
+                <div id="doce1">
+                    
+                    <div id="igredientes-doce1" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>SABORES:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesDoce1()" id="fecharIgredientesDoce1"></i>
+                        </div>
+                        
+                        <form id="opcoesMousse" class="subOpcoes">
+                            <div><input type="radio" name="opcoesMousse" value="Maracujá" class="opcoesMousse todas_opcoes" id="maracuja" style="width: 15px;"> <label for="maracuja">Maracujá</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Cupuaçu" class="opcoesMousse todas_opcoes" id="cupuacu" style="width: 15px;"> <label for="cupuacu">Cupuaçu</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Morango" class="opcoesMousse todas_opcoes" id="morango" style="width: 15px;"> <label for="morango">Morango</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Chocolate" class="opcoesMousse todas_opcoes" id="chocolate" style="width: 15px;"> <label for="chocolate">Chocolate</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Bolacha Oreo" class="opcoesMousse" id="oreo" style="width: 15px;"> <label for="oreo">Bolacha Oreo</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Nutella" class="opcoesMousse todas_opcoes" id="nutella" style="width: 15px;"> <label for="nutella">Nutella</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Taperebá" class="opcoesMousse todas_opcoes" id="tapereba" style="width: 15px;"> <label for="tapereba">Taperebá</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Tucumã" class="opcoesMousse todas_opcoes" id="tucuma" style="width: 15px;"> <label for="tucuma">Tucumã</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Laranja" class="opcoesMousse todas_opcoes" id="laranja" style="width: 15px;"> <label for="laranja">Laranja</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Banana" class="opcoesMousse todas_opcoes" id="banana" style="width: 15px;"> <label for="banana">Banana</label></div>
+                            <div><input type="radio" name="opcoesMousse" value="Amendoin" class="opcoesMousse todas_opcoes" id="amendoin" style="width: 15px;"> <label for="amendoin">Amendoin</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdDoce1" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addDoce1()" id="mostrarIgredientesDoce1"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add burger simples 1-->
+                            <button class="btn_desmarcar" onclick="desmarcar_sobremesa1()">Desmarcar</button>
+                        </div>
+                        
+                    </div>
+
+                    <div id="img-e-lista-doce1">
+                        <img src="Burgers doces/doce1.jpg" alt="burger doce">
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-doce1">
+                        <p id="preço-doce1">7,00$</p>
+                        <button onclick="mostrarIgredientesDoce1()">Sabores</button><!--mostrar sabores-->
+                        <i class="fa-solid fa-check checado" id="checado_sobremesa1"></i>      
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <!-- Estrutura da opção 2 de burger doce -->
+            <div id="bd2">
+                <h1>Sorvete no Copo (400ml)</h1>
+                <div id="doce2">
+                    
+                    <div id="igredientes-doce2" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>SABORES:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesDoce2()" id="fecharIgredientesDoce2"></i>
+                        </div>
+                        
+                        <form id="opcoesSorvete" class="subOpcoes">
+                            <div><input type="radio" name="opcoesSorvete" value="Chocolate" class="opcoesSorvete todas_opcoes" id="sorveteChocole" style="width: 15px;"> <label for="sorveteChocole">Sorvete de Chocolate</label></div>
+                            <div><input type="radio" name="opcoesSorvete" value="Açaí" class="opcoesSorvete todas_opcoes" id="sorveteAcai" style="width: 15px;"> <label for="sorveteAcai">Sorvete de Açaí</label></div>
+                            <div><input type="radio" name="opcoesSorvete" value="Amendoin" class="opcoesSorvete todas_opcoes" id="sorveteAmendoin" style="width: 15px;"> <label for="sorveteAmendoin">Sorvete de Amendoin</label></div>
+                            <div><input type="radio" name="opcoesSorvete" value="Morango" class="opcoesSorvete todas_opcoes" id="sorveteMorango" style="width: 15px;"> <label for="sorveteMorango">Sorvete de Morango</label></div>
+                            <div><input type="radio" name="opcoesSorvete" value="Cupuaçu" class="opcoesSorvete todas_opcoes" id="sorveteCupuacu" style="width: 15px;"> <label for="sorveteCupuacu">Sorvete de Cupuaçu</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdDoce2" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addDoce2()" id="mostrarIgredientesDoce2"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add burger simples 1-->
+                            <button class="btn_desmarcar" onclick="desmarcar_sobremesa2()">Desmarcar</button>
+                        </div>
+                    </div>
+
+                    <div id="img-e-lista-doce2">
+                        <img src="Burgers doces/doce 2.jpg" alt="burger doce">     
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-doce2">
+                        <p id="preço-doce2">5,00$</p>
+                        <button onclick="mostrarIgredientesDoce2()">Sabores</button><!--mostrar sabores-->
+                        <i class="fa-solid fa-check checado" id="checado_sobremesa2"></i>    
+                    </div>
+                </div> 
+            </div>
+
+
+            <!-- Estrutura da opção 3 de burger doce -->
+            <div id="bd3">
+                <h1>Empadão</h1>
+                <div id="doce3">
+                    
+                    <div id="igredientes-doce3" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>SABORES:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesDoce3()" id="fecharIgredientesDoce3"></i>
+                        </div>
+                        
+                        <form id="opcoesEmpadao" class="subOpcoes">
+                            <div><input type="radio" name="opcoesEmpadao" value="Frango Catupiry" class="opcoesEmpadao todas_opcoes" id="empadaoF" style="width: 15px;"> <label for="empadaoF">Frango Catupiry</label></div>
+                            <div><input type="radio" name="opcoesEmpadao" value="Camarão" class="opcoesEmpadao todas_opcoes" id="empadaoC" style="width: 15px;"> <label for="empadaoC">Camarão</label></div>
+                            <div><input type="radio" name="opcoesEmpadao" value="Queijo" class="opcoesEmpadao todas_opcoes" id="empadaoQ" style="width: 15px;"> <label for="empadaoQ">Queijo</label></div>
+                            <div><input type="radio" name="opcoesEmpadao" value="Bacon" class="opcoesEmpadao todas_opcoes" id="empadaoB" style="width: 15px;"> <label for="empadaoB">Bacon</label></div>
+                            <div><input type="radio" name="opcoesEmpadao" value="Calabresa" class="opcoesEmpadao todas_opcoes" id="empadaoCA" style="width: 15px;"> <label for="empadaoCA">Calabresa</label></div>
+                            <div><input type="radio" name="opcoesEmpadao" value="Bacalhau" class="opcoesEmpadao todas_opcoes" id="empadaoBA" style="width: 15px;"> <label for="empadaoBA">Bacalhau</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdDoce3" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addDoce3()" id="mostrarIgredientesDoce3"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add burger simples 1-->
+                            <button class="btn_desmarcar" onclick="desmarcar_sobremesa3()">Desmarcar</button>
+                        </div>
+                    </div>
+
+                    <div id="img-e-lista-doce3">
+                        <img src="Burgers doces/doce3.jpg" alt="burger tradicional">
+                          
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-doce3">
+                        <p id="preço-doce3">6,00$</p>
+                        <button onclick="mostrarIgredientesDoce3()">Sabores</button><!--Mostrar sabores-->
+                        <i class="fa-solid fa-check checado" id="checado_sobremesa3"></i>      
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- 3.4 estrutura das opções de combos -->
+        <div id="combos">  
+            <!-- Estrutura da opção 1 de combo -->
+            <div id="c1">
+                <h1>Suco Natural (600ml)</h1>
+                <div id="combo1">
+                    
+                    <div id="igredientes-combo1" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>SABORES:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesCombo1()" id="fecharIgredientesCombo1"></i>
+                        </div>
+                        
+                        <form id="opcoesSuco" class="subOpcoes">
+                            <div><input type="radio" name="opcoesSuco" value="Maracujá" class="opcoesSuco todas_opcoes" id="sucoM" style="width: 15px;"> <label for="sucoM">Maracujá</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Cupuaçu" class="opcoesSuco todas_opcoes" id="sucoC" style="width: 15px;"> <label for="sucoC">Cupuaçu</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Taperebá" class="opcoesSuco todas_opcoes" id="sucoT" style="width: 15px;"> <label for="sucoT">Taperebá</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Graviola" class="opcoesSuco todas_opcoes" id="sucoG" style="width: 15px;"> <label for="sucoG">Graviola</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Laranja" class="opcoesSuco todas_opcoes" id="sucoL" style="width: 15px;"> <label for="sucoL">Laranja</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Limão" class="opcoesSuco todas_opcoes" id="sucoLI" style="width: 15px;"> <label for="sucoLI">Limão</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Abacaxi" class="opcoesSuco todas_opcoes" id="sucoA" style="width: 15px;"> <label for="sucoA">Abacaxi</label></div>
+                            <div><input type="radio" name="opcoesSuco" value="Acerola" class="opcoesSuco todas_opcoes" id="sucoAC" style="width: 15px;"> <label for="sucoAC">Acerola</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdCombo1" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addCombo1()" id="mostrarIgredientesCombo1"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add combo 1-->
+                            <button class="btn_desmarcar" onclick="desmarcar_bebida1()">Desmarcar</button>
+                        </div>
+                    </div>
+
+                    <div id="img-e-lista-combo1">
+                        <img src="Combos/combo1.jpg" alt="combo">      
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-combo1">
+                        <p id="preço-combo1">8,00$</p>
+                        <button onclick="mostrarIgredientesCombo1()">Sabores</button><!--mostrar sabores-->
+                        <i class="fa-solid fa-check checado" id="checado_bebida1"></i>     
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <!-- Estrutura da opção 2 combo -->
+            <div id="c2">
+                <h1>Refrigerante (2 litros)</h1>
+                <div id="combo2">
+                    
+                    <div id="igredientes-combo2" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>MARCAS:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesCombo2()" id="fecharIgredientesCombo2"></i>
+                        </div>
+                        
+                        <form id="opcoesRefri" class="subOpcoes">
+                            <div><input type="radio" name="opcoesRefri" value="Coca" class="opcoesSuco todas_opcoes" id="coca" style="width: 15px;"> <label for="coca">Coca-Cola</label></div>
+                            <div><input type="radio" name="opcoesRefri" value="Fanta" class="opcoesSuco todas_opcoes" id="fanta" style="width: 15px;"> <label for="fanta">Fanta</label></div>
+                            <div><input type="radio" name="opcoesRefri" value="Sprite" class="opcoesSuco todas_opcoes" id="sprite" style="width: 15px;"> <label for="sprite">Sprite</label></div>
+                            <div><input type="radio" name="opcoesRefri" value="Baré" class="opcoesSuco todas_opcoes" id="bare" style="width: 15px;"> <label for="bare">Baré</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdCombo2" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addCombo2()" id="mostrarIgredientesCombo2"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add combo 2-->
+                            <button class="btn_desmarcar" onclick="desmarcar_bebida2()">Desmarcar</button>
+                        </div>
+                    </div>
+
+                    <div id="img-e-lista-combo2">
+                        <img src="Combos/combo2.jpg" alt="combo">
+                           
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-combo2">
+                        <p id="preço-combo2">7,00$</p>                        
+                        <button onclick="mostrarIgredientesCombo2()">Sabores</button><!--ver sabores--->
+                        <i class="fa-solid fa-check checado" id="checado_bebida2"></i>      
+                    </div>
+                </div> 
+            </div>
+
+
+            <!-- Estrutura da opção 3 de combo -->
+            <div id="c3">
+                <h1>Coquetel de Frutas</h1>
+                <div id="combo3">
+                    
+                    <div id="igredientes-combo3" class="igredientes">
+                        <div class="fecharIgredientes">
+                            <p><strong>SABORES:</strong></p>
+                            <i class="fa-solid fa-xmark" onclick="fecharIgredientesCombo3()" id="fecharIgredientesCombo3"></i>
+                        </div>
+                        
+                        <form id="opcoesRefri" class="subOpcoes">
+                            <div><input type="radio" name="opcoesCoquetel" value="Morango" class="opcoesCoquetel todas_opcoes" id="coquetelM" style="width: 15px;"> <label for="coquetelM">Morango</label></div>
+                            <div><input type="radio" name="opcoesCoquetel" value="Tangerina" class="opcoesCoquetel todas_opcoes" id="coquetelT" style="width: 15px;"> <label for="coquetelT">Tangerina</label></div>
+                            <div><input type="radio" name="opcoesCoquetel" value="Limão" class="opcoesCoquetel todas_opcoes" id="coquetelL" style="width: 15px;"> <label for="coquetelL">Limão</label></div>
+                            <div><input type="radio" name="opcoesCoquetel" value="Cupuaçu" class="opcoesCoquetel todas_opcoes" id="coquetelC" style="width: 15px;"> <label for="coquetelC">Cupuaçu</label></div>
+                            <div><input type="radio" name="opcoesCoquetel" value="Maracujá" class="opcoesCoquetel todas_opcoes" id="coquetelMA" style="width: 15px;"> <label for="coquetelMA">Maracujá</label></div>
+                            <div><input type="radio" name="opcoesCoquetel" value="Laranja" class="opcoesCoquetel todas_opcoes" id="coquetelLA" style="width: 15px;"> <label for="coquetelLA">Laranja</label></div>
+                        </form>
+                        <div class="btnAdd_e_qtd">
+                            <input type="number" id="qtdCombo3" placeholder="Unidades" max="5" min="1" maxlength="2" minlength="1">
+                            <button class="botao_add_subopcao" onclick="addCombo3()" id="mostrarIgredientesCombo3"><i class="fa-solid fa-cart-plus"></i> Adicionar</button><!-- função add combo 3-->
+                            <button class="btn_desmarcar" onclick="desmarcar_bebida3()">Desmarcar</button>
+                        </div>
+                    </div>
+
+                    <div id="img-e-lista-combo3">
+                        <img src="Combos/combo3.jpg" alt="combo">                            
+                    </div>
+                
+                    <span class="divisao"></span>
+
+                    <div id="preco-qtd-botao-combo3">
+                        <p id="preço-combo3">11,00$</p>                        
+                        <button onclick="mostrarIgredientesCombo3()">Sabores</button><!--ver sabores-->
+                        <i class="fa-solid fa-check checado" id="checado_bebida3"></i>    
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- --4 ESTRUTURA REFERENTE A LISTA DE ITENS ADICIONADOS AO CARRINHO COM OS SEUS PREÇOS, NOMES E QUANTIDADES E BOTÃO SOMAR TUDO-- -->
+        <p id="listaDeCompras"><strong>Lista de Compras:<strong></p>
+        <hr>          
+        <div id="listaEscolhidos">    
+            <div id="resTradicionais"> <!-- Estrutura da lista de BG tradicinais comprados-->
+                <div id="item1Tr" class="item">
+                    <div id="resTradicional1"></div>
+                    <button id="botaoRemoverTr1" class="botaoRemover" onclick="removerTr1()">Remover</button>
+                </div>
+                
+                <div id="item2Tr" class="item">
+                    <div id="resTradicional2"></div>
+                    <button id="botaoRemoverTr2" class="botaoRemover" onclick="removerTr2()">Remover</button>
+                </div>
+                
+                <div id="item3Tr" class="item">
+                    <div id="resTradicional3"></div>
+                    <button id="botaoRemoverTr3" class="botaoRemover" onclick="removerTr3()">Remover</button>
+                </div>
+               
+                <div id="item4Tr" class="item">
+                    <div id="resTradicional4"></div>
+                    <button id="botaoRemoverTr4" class="botaoRemover" onclick="removerTr4()">Remover</button>
+                </div>    
+            </div>
+
+            
+
+
+            <div id="resArtesanais"> <!-- Estrutura da lista de BG artesanais comprados-->
+                <div id="item1At" class="item">
+                    <div id="resArtesanal1"></div>
+                    <button id="botaoRemoverAt1" class="botaoRemover" onclick="removerAt1()">Remover</button>
+                </div>
+                
+                <div id="item2At" class="item">
+                    <div id="resArtesanal2"></div>
+                    <button id="botaoRemoverAt2" class="botaoRemover" onclick="removerAt2()">Remover</button>
+                </div>
+                
+                <div id="item3At" class="item">
+                    <div id="resArtesanal3"></div>
+                    <button id="botaoRemoverAt3" class="botaoRemover" onclick="removerAt3()">Remover</button>
+                </div>
+            </div>
+
+            
+            
+            
+            <div id="resDoces"><!-- Estrutura da lista de BG doces comprados-->
+                <div id="item1Dc" class="item">
+                    <div id="resDoce1"></div>
+                    <button id="botaoRemoverDc1" class="botaoRemover" onclick="removerDc1()">Remover</button>
+                </div>
+                
+                <div id="item2Dc" class="item">
+                    <div id="resDoce2"></div>
+                    <button id="botaoRemoverDc2" class="botaoRemover" onclick="removerDc2()">Remover</button>
+                </div>
+                
+                <div id="item3Dc" class="item">
+                    <div id="resDoce3"></div>
+                    <button id="botaoRemoverDc3" class="botaoRemover" onclick="removerDc3()">Remover</button>
+                </div>        
+            </div>
+
+
+
+
+
+            <div id="resCombos"> <!-- Estrutura da lista de combos comprados-->
+                <div id="item1Cb" class="item">
+                    <div id="resCombo1"></div>
+                    <button id="botaoRemoverCb1" class="botaoRemover" onclick="removerCb1()">Remover</button>
+                </div>
+                
+                <div id="item2Cb" class="item">
+                    <div id="resCombo2"></div>
+                    <button id="botaoRemoverCb2" class="botaoRemover" onclick="removerCb2()">Remover</button>
+                </div>
+                
+                <div id="item3Cb" class="item">
+                    <div id="resCombo3"></div>
+                    <button id="botaoRemoverCb3" class="botaoRemover" onclick="removerCb3()">Remover</button>
+                </div>               
+            </div>   
+        </div>
+
+         
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- -------------------5.0 ESTRUTURA REFERENTE AOS BOTÕES DE SOMAR TOTAL, PEDIR E VALOR TOTAL E DADOS FINAIS ------------------->
+        <div id="totalTudo">
+            <p>Total</p>
+            <h1 id="TOTAL">0,00$</h1> 
+        </div>
+        
+        <div id="aviso_desblock_botao">
+            <i class="fa-solid fa-user"></i></i>
+            <p id="aviso_desbloquer_botao" >Realizar Cadastro para desbloquear o Botão "SOMAR TOTAL"</p>
+        </div>
+
+        <div id="botaoSomar-aviso">
+            <div id="desabilita_botao" onclick="mostrar_cadastro()"></div>
+            <button onclick="somar()" id="somarTotal">SOMAR TOTAL</button> <!-- Botão Somar Tudo -->
+        </div>      
+    </main>
+
+
+
+    <footer id="rodape">
+       
+        <div id="main">
+            <div id="logotipo">
+                <img src="imagens/logo brocados burger png.png" alt="Logo">
+            </div>
+    
+            <div id="contatos">
+                <p>Restaurante Divino Espeto<br>Local: Rua da Prosperidade, 377 - Alvorada 2-Manaus<br>Telefone: (92)99163 - 5554</p>
+            </div>
+        </div>
+
+        <div id="divisaoRodape"></div>
+        
+        <div id="info">
+            <p>Manaus - AM</p>
+            <p>2023</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

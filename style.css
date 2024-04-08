@@ -1,0 +1,2850 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.nomeDinamico{ /*Escondendo os nomes dinâmicos*/
+    display: none!important;
+}
+
+.subopcao_escolhida{ /*Escondendo os nomes dinâmicosd as subopcões do menu*/
+    display: none!important;
+}
+
+.preco_dinamico{/*Escondendo os preços dinâmicos*/
+    display: none!important;
+}
+
+.subtotal_dinamico{/*Escondendo os subtotais dinâmicos*/
+    display: none!important;
+}
+
+body{
+    background-color: rgb(255, 254, 248);
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(30deg, rgb(255, 255, 255), rgb(255, 250, 237));
+}
+
+header{
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden
+}
+
+
+/*--------------------------------------------------------ESTILO REFERENTE AO CADASTRO------------------------------------------------*/
+#corpoCadastro{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    position: fixed;
+    z-index: 2000;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(62, 62, 62);
+    display: none; 
+}
+
+#mensagem_cadastro{
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+#mensagem_cadastro p{
+    font-size: 1em;
+    text-align: center;
+    font-weight: bolder;
+}
+#mensagem_cadastro i{
+    font-size: 28px;
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    cursor: pointer;
+}
+
+#corpoCadastro #logo_cadastro{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#corpoCadastro #logo_cadastro img{
+    width: 100%;
+}
+
+#mainCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.116);
+    padding: 20px 10px 20px 10px;
+    border-radius: 20px;
+    gap: 15px;
+}
+
+#titulo_cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#titulo_cadastro i{
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#formularioCadastro{
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dadosCadastro{
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+}
+
+#dadosCadastro div label{
+    display: block;
+}
+
+#formularioCadastro #dadosCadastro input{
+    width: 100%!important;
+    height: 40px!important;
+    border-radius: 10px;
+    outline: none;
+    border: 3px solid rgb(86, 86, 86);
+}
+
+#botoes_cadastro{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#botoes_cadastro button{
+    width: 140px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    transition: all 0.2s ease;
+}
+
+#botoes_cadastro button:hover{
+    background-color: #ffbb03;
+}
+
+@media(max-width:750px){
+    #corpoCadastro{
+        flex-direction: column;
+    }
+    #corpoCadastro #logo_cadastro{
+        width: 250px;
+    }   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------ 1.ESTILO REFERENTE AO CABEÇALHO E AO MENU LATERAL ----------------------------------*/   
+#logo-contatos-menulateral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffbb03;
+    
+    
+    position: fixed;
+    width: 100%;
+    z-index: 300;
+}
+
+#logo-contatos-menulateral img{
+    width: 80px;
+}
+
+#contatos{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+#logo-contatos-menulateral ul li a{
+    text-decoration: none;
+    color: #1e1700;
+}
+
+#logo-contatos-menulateral ul li a i:hover{
+    transform: scale(2);
+    transition: all 0,8s ease;
+}
+
+#tresRiscos{
+    color: #1e1700;
+    font-size: 2em;
+    cursor: pointer;
+    display: block;
+    top: 100px; 
+    position: fixed;
+    z-index: 200;
+    left: 30px;
+    background-color: rgba(255, 251, 242, 0.691);
+    border-radius: 5px;
+}
+
+
+
+nav #contatos, #usuario{
+    font-size: 2em;
+   
+}
+
+#usuario{
+    cursor: pointer;
+}
+
+#usuario a{
+    text-decoration: none;
+    color: #1e1700;
+} 
+
+#menuLateral{
+    height: 100%;
+    width: 100%;
+    transform: translateX(-4000px); /*-----------------------*/
+    background-color:hsl(0, 0%, 100%);
+    transition: all 0.7s linear;
+    position: fixed;
+    z-index: 999;
+    padding-top: 20px;   
+}
+
+#menuLateral #usuario-e-x{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 2em;
+    color: #1e1700;
+    margin-bottom: 5px;
+}
+
+#menuLateral #usuario-e-x i{
+    cursor: pointer;
+}
+
+#menuLateral #usuario-e-x nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menuLateral #usuario-e-x nav i{
+    cursor: pointer;
+}
+
+#menuLateral > ul li a{
+    display: block;
+    display: flex;
+    gap: 5px;
+    color: #1e1700;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 0.3s linear;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type=checkbox]:checked ~ #menuLateral{
+    transform: translateX(0px);
+}
+
+#menuLateral ul ul{
+    display: none;
+}
+
+#menuLateral ul ul li a{
+    color: white;
+}
+
+#menuLateral > ul{
+    margin-top: 17px;
+}
+
+/* Mostrar submneu equipe*/
+#menuLateral ul #subMenu0:hover #subMenuEquipe{
+    display: block;
+}
+
+#menuLateral ul #subMenu0:hover a{
+    color: #ffbb03;
+}
+
+#menuLateral ul #subMenu0:hover #subMenuEquipe a{
+    color: white;
+}
+
+#menuLateral ul #subMenu0:hover{
+    background-color: #1e1700;
+    transition: all 0.3s ease;
+}
+
+/* Mostrar submenu sobre */
+#menuLateral ul #subMenu1:hover #subMenuSobre{
+    display: block;
+}
+
+#menuLateral ul #subMenu1:hover a{
+    color: #ffbb03;
+}
+
+#menuLateral ul #subMenu1:hover #subMenuSobre a{
+    color: white;
+}
+
+#menuLateral ul #subMenu1:hover{
+    background-color: #1e1700;
+    transition: all 0.3s ease;
+}
+
+/* Mostrar submenu local*/
+#menuLateral ul #subMenu2:hover #subMenuLocal{
+    display: block;
+}
+
+#menuLateral ul #subMenu2:hover #subMenuLocal a{
+    color: white;
+}
+
+#menuLateral ul #subMenu2:hover a{
+    color: #ffbb03;
+}
+#menuLateral ul #subMenu2:hover{
+    background-color: #1e1700;
+    transition: all 0.3s ease;
+}
+
+/* Mostrar submenu objetivo*/
+#menuLateral ul #subMenu3:hover #subMenuObjetivo{
+    display: block;
+}
+
+#menuLateral ul #subMenu3:hover #subMenuObjetivo a{
+    color: white;
+}
+
+#menuLateral ul #subMenu3:hover a{
+    color: #ffbb03;
+}
+
+#menuLateral ul #subMenu3:hover{
+    background-color: #1e1700;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------2.ESTILO REFERENTE AO CARROSEL DE IMAGENS-----------------------------------*/
+#FraseBonitinha{
+    text-align: center;
+    padding-top: 150px;
+    font-family: 'Alfa Slab One';
+    color: #1e1700;
+    width: 80%;
+}
+
+
+#carrosel-imagens{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#carrosel-imagens img{
+    width: 90%;
+}
+
+#contador{
+    display: none;
+}
+
+#slideRadius{
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+#slideRadius .radioIndicator{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+#slideRadius .radioIndic{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #1e1700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------Estilização do Texto das opções: tradicionais, artesanais, doces e combos----------- */ 
+#opcoesMenu{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    width: 100%;
+    position: relative;
+    gap: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media (max-width:850px){
+    #opcoesMenu{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+#opcoesMenu div{
+    display: inline;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+       
+#opcoesMenu p{
+    color: #1e1700;
+    cursor: pointer;
+    transition: all 0,5s ease;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#opcoesMenu #TRADICIONAIS{
+    border-bottom: #ffbb03 4px solid;
+    color: #ffbb03;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------3.ESTILO REFERENTE AS OPÇÕES DE BURGERS DO MENU-----------------------------------*/
+
+/*------------3.1 Estilo referente as opções de menu da lista de burger tradicional---------*/
+    /* Estilo da opção 1 de burger tradicional*/
+#tradicionais{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+#tradicionais img{
+    width: 230px;
+}
+
+#tradicionais .divisao{
+    display: none;
+}
+
+
+#bt1{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+   
+    overflow: hidden;
+    width: 400px;
+}
+
+
+
+#tradicionais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#tradicionais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#tradicionais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#tradicionais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#tradicionais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+/*Mudado*/
+#tradicional1{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-tradicional1{
+    display: flex;
+}
+
+#img-e-lista-tradicional1 ul li{
+    font-size: 11px;
+}
+/*Mudado*/
+#preco-qtd-botao-tradicional1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+#preco-qtd-botao-tradicional1 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+   
+}
+
+
+
+
+    /*Estilo referente a opção 2 de burger tradicional*/
+#bt2{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+
+#tradicionais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#tradicionais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#tradicionais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#tradicionais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#tradicionais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#tradicional2{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-tradicional2{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-tradicional2 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-tradicional2{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-tradicional2 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 3 de burger tradicional*/
+#bt3{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+
+#tradicionais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#tradicionais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#tradicionais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#tradicionais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#tradicionais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#tradicional3{
+    display: flex;
+    margin: 0 auto;
+    gap: 25px;
+    position: relative;
+}
+
+#img-e-lista-tradicional3{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-tradicional3 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-tradicional3{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-tradicional3 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 4 de burger tradicional*/
+#bt4{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+
+#tradicionais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#tradicionais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#tradicionais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#tradicionais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#tradicionais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#tradicional4{
+    display: flex;
+    gap: 25px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#img-e-lista-tradicional4{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-tradicional4 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-tradicional4{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-tradicional4 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+/*------------3.2 Estilo referente as opções de menu da lista de burger artesanal---------*/
+/* Estilo da opção 1 de burger artesanal*/
+#artesanais{
+    display: none;/*Escondendo as opções de menu do burger artesanal*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+span{
+    display: none;
+}
+
+#artesanais img{
+    width: 230px;
+}
+
+#ba1{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+
+#artesanais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#artesanais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#artesanais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#artesanais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#artesanais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#artesanal1{
+    display: flex;
+    gap: 25px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#img-e-lista-artesanal1{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-artesanal1 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-artesanal1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-artesanal1 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 2 de burger artesanal*/
+#ba2{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+#artesanais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#artesanais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#artesanais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#artesanais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#artesanais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#artesanal2{
+    display: flex;
+    gap: 25px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#img-e-lista-artesanal2{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-artesanal2 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-artesanal2{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-artesanal2 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 3 de burger artesanal*/
+#ba3{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+#artesanais span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#artesanais h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#artesanais button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#artesanais button:hover{
+    border: #1e1700 3px solid;
+}
+
+#artesanais input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#artesanal3{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-artesanal3{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-artesanal3 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-artesanal3{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-artesanal3 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------------3.3 Estilo referente as opções de menu da lista de burger doce---------*/
+/* Estilo da opção 1 de burger doce*/
+#doces{
+    display: none;/*Escondendo as opções de menu do burger doce*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+#bd1{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+   
+    overflow: hidden;
+}
+
+#doces img{
+    width: 230px;
+}
+
+#doces span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#doces h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#doces button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#doces button:hover{
+    border: #1e1700 3px solid;
+}
+
+#doces input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#doce1{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-doce1{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-doce1 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-doce1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-doce1 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+    /*Estilo referente a opção 2 de burger doce*/
+#bd2{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+   
+    overflow: hidden;
+}
+
+#doces span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#doces h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#doces button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#doces button:hover{
+    border: #1e1700 3px solid;
+}
+
+#doces input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#doce2{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-doce2{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-doce2 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-doce2{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-doce2 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 3 de burger doce*/
+#bd3{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+#doces span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#doces h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#doces button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#doces button:hover{
+    border: #1e1700 3px solid;
+}
+
+#doces input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#doce3{
+    display: flex;
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-doce3{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-doce3 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-doce3{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-doce3 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------------3.4 Estilo referente as opções de menu da lista de combos---------*/
+/* Estilo da opção 1 de combo*/
+#combos{
+    display: none;/*Escondendo as opções de menu dos combos*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 1px;
+    padding-left: 1px;
+}
+
+#combos img{
+    width: 230px;
+}
+
+#c1{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+   
+    overflow: hidden;
+}
+
+#combos span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#combos h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#combos button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#combos button:hover{
+    border: #1e1700 3px solid;
+}
+
+#combos input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#combo1{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-combo1{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-combo1 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-combo1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-combo1 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 2 de combo*/
+#c2{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+#combos span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#combos h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#combos button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#combos button:hover{
+    border: #1e1700 3px solid;
+}
+
+#combos input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#combo2{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-combo2{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-combo2 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-combo2{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-combo2 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+    /*Estilo referente a opção 3 de combo*/
+#c3{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.389);
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+    border-top-right-radius: 50px;
+    
+    overflow: hidden;
+}
+
+#combos span{
+    background-color: #1e1700;
+    width: 2px;
+    height: 110px;
+    border-radius: 1px;
+    margin-top: 18px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#combos h1{
+    text-align: center;
+    background-color: #ffbb03;
+    font-family: 'Alfa Slab One';
+    font-size: 23px;
+    padding: 3px;
+}
+
+#combos button{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#combos button:hover{
+    border: #1e1700 3px solid;
+}
+
+#combos input{
+    width: 90px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+}
+
+#combo3{
+    display: flex;
+    gap: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#img-e-lista-combo3{
+    display: flex;
+    gap: 20px;
+}
+
+#img-e-lista-combo3 ul li{
+    font-size: 12px;
+}
+
+#preco-qtd-botao-combo3{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#preco-qtd-botao-combo3 p{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------ESTILO REFERENTE A LISTA DE IGREDIENTES DAS OPÇÕES DE MENU----------------------*/
+.igredientes{
+    position: absolute;
+    background-color: #fffdf7;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    text-align: left;
+}
+
+#igredientes-tradicional1{
+    display: none; /*Escondendo idredientes do tradicional 1*/    
+}
+#igredientes-tradicional2{
+    display: none; /*Escondendo idredientes do tradicional 2*/    
+}
+#igredientes-tradicional3{
+    display: none; /*Escondendo idredientes do tradicional 3*/    
+}
+#igredientes-tradicional4{
+    display: none; /*Escondendo idredientes do tradicional 4*/    
+}
+
+
+#igredientes-artesanal1{
+    display: none; /*Escondendo idredientes do artesanal 1*/    
+}
+#igredientes-artesanal2{
+    display: none; /*Escondendo idredientes do artesanal 2*/    
+}
+#igredientes-artesanal3{
+    display: none; /*Escondendo idredientes do artesanal 3*/    
+}
+
+
+#igredientes-doce1{
+    display: none; /*Escondendo idredientes do doce 1*/    
+}
+#igredientes-doce2{
+    display: none; /*Escondendo idredientes do doce 2*/    
+}
+#igredientes-doce3{
+    display: none; /*Escondendo idredientes do doce 3*/    
+}
+
+
+#igredientes-combo1{
+    display: none; /*Escondendo idredientes do combo 1*/    
+}
+#igredientes-combo2{
+    display: none; /*Escondendo idredientes do combo 2*/    
+}
+#igredientes-combo3{
+    display: none; /*Escondendo idredientes do combo 3*/    
+}
+
+
+
+.lista{
+    margin-left: 10px;
+}
+
+.fecharIgredientes{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+}
+
+.fecharIgredientes i{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.fecharIgredientes i:hover{
+    background-color: #ffbb03;
+}
+
+.botaoMostrarIgredientes{
+    position: absolute;
+    z-index: 90;
+    bottom: 0;
+    text-align: center;
+    left: 140px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.759);
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.botaoMostrarIgredientes:hover{
+    background-color: #ffbb03;
+}
+/*ESTILO DOS INPUTS RADIOS DAS SUBOPCÕES DO MENU*/
+.subOpcoes{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    height: 50%;
+    overflow-y: scroll;
+}
+.subOpcoes div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*ESTILO DOS BOTÕES DE PARA ADICIONAR OPÇÃO RADIO DOS SUBMENUS*/
+.botao_add_subopcao{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: #ffbb03;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    
+}
+.botao_add_subopcao:hover{
+    border: #1e1700 3px solid;
+}
+.btnAdd_e_qtd{
+    margin: 0;
+    display: flex;
+    padding-left: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: baseline;
+    position: absolute;
+    top: 83%;
+    width: 100%;
+    height: 0;
+}
+.btnAdd_e_qtd input[type="number"]{
+    margin-top: 20px;
+}
+/*ESTILO BOTÃO DESMARCAR*/
+.btn_desmarcar{
+    color: white;
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 120px;
+    background-color: rgb(255, 25, 0)!important;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn_desmarcar:hover{
+    border: #1e1700 3px solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------- 4.0 ESTILO REFERENTE A LISTA DE ITENS ADICIONADOS AO CARRINHO --------------------- */
+#listaDeCompras{
+    text-align: center;
+    margin-top: 80px;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+}
+
+hr{
+    margin-bottom: 20px;
+}
+
+#listaEscolhidos{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.item{
+    margin-bottom: 20px;
+}
+
+.botaoRemover{
+    display: none;
+    outline: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.303);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------- 5.0 ESTILO REFERENTE AOS BOTÕES DE SOMAR TOTAL, BOTÃO PEDIR E O VALOR TOTAL FINAL -----------------*/
+#somarTotal{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.235);
+    background-color: #ffbb03;
+}
+
+#somarTotal:hover{
+    border: #1e1700 3px solid;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!PROBRMA ENCONTRADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*O margin-right DO #botaoSomar-aviso estava fazendo com que o lado direito da tela ficasse com um espaço em branco na versão mobile*/
+#botaoSomar-aviso{
+    display: block;
+    width: 300px;
+    position: relative;
+
+}
+#botaoSomar-aviso #somarTotal{
+   width: 100%; 
+}
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!PROBLEMA ENCONTRADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#botaoSomar-aviso p{
+    font-size: 13px;
+    color: #1e1700;
+    text-align: left;
+}
+
+#pedir{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #ffbb03;
+    color:#1e1700;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /*Escondendo o botão pedir*/
+}
+#pedir:hover{
+    border: #1e1700 4px solid;
+}
+
+
+#totalTudo{
+    color: #1e1700;
+    text-align: left;
+    margin-left: 0px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------- 6.0 ESTILO REFERENTE AO FORMULÁRIO ----------------------------------------*/
+#modoPagamento-localizacao-botao{
+    color: #1e1700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+    margin-top: 20px;
+    z-index: 998;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    display: none;
+}
+
+#totalFormulario #total_a_pagar{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    gap: 4px;
+}
+
+#totalFormulario #total_a_pagar h2{
+    font-size: 30px;
+}
+
+#totalFormulario{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+   padding-bottom: 20px;
+}
+
+#totalFormulario > div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+#totalFormulario > div > div > button{
+    height: 100%;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+#totalFormulario > div > div > button:hover{
+    background-color: #ffbb03;
+}
+#totalFormulario > div > div > input[type="password"]{
+    width: 144px;
+}
+
+#corpoFormulario{
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.689);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    bottom: 20px;
+}
+@media (min-width:900px){
+    #corpoFormulario{
+        width: 700px;
+    }
+}
+
+#corpoFormulario input[type="text"], input[type="password"], input[type="number"]{
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#corpoFormulario i{
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: 88%;
+    margin-bottom: 0px;
+    color: #1e1700;
+}
+
+#totalFormulario hr{
+    margin-top: 0;
+}
+
+#totalFormulario h1{
+    font-size: 3em;
+}
+
+
+#corpoFormulario a button{
+    width: 90%;
+    max-width: 600px;
+    height: 50px;
+    background-color: #ffbb03;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+#corpoFormulario a button:hover{
+    border: #1e1700 3px solid;
+}
+#corpoFormulario a{
+    display: block;
+    width: 90%;
+}
+
+#corpoFormulario hr{
+    display: block;
+    width: 100%;
+}
+
+#localizacao{
+    display: flex;
+    justify-content: center;
+    gap: 3px; 
+}
+@media (max-width: 700px){
+    #localizacao{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#localizacao input[type="text"]{
+    margin-bottom: 5px;
+    outline: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+input[type="radio"] + label{
+    font-size: 13px;
+}
+
+#metodosPagamento{
+    margin-bottom: 20px;
+}
+@media (min-width: 700px){
+    #metodosPagamento label{
+        margin-right: 30px;
+    }
+}
+
+.senha{
+    display: none;
+    outline: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#pix:checked ~ div #chavePix{
+    display: inline-block;
+}
+
+#dinheiro:checked ~ div #din{
+    display: inline-block;
+}
+
+#credito:checked ~ div #cart{
+    display: inline-block;
+}
+
+#debito:checked ~ div #cart{
+    display: inline-block;
+}
+
+#corpoFormulario form{
+    width: 100%;
+}
+
+input[type="text-area"]{
+    height: 40px;
+    width: 300px;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+/* -------------------------------- ESTILO DO FUNDO ESCURO DO FORMULÁRIO ----------------------------*/
+#FundoEscuroDoFormulario{
+    position: relative;
+    position: fixed;
+    z-index: 997;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------ESTILO REFERENTE AO RODAPÉ-----------------------------------------*/
+footer{
+    width: 100%;
+    background-color: #ffbb03;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p{
+    color: #1e1700;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+footer img{
+    width: 160px;
+}
+
+footer div{
+    display: flex;
+    flex-direction: column;
+}
+
+#info{
+    align-items: center;
+    text-align: center;
+}
+
+#divisaoRodape{
+    width: 100%;
+    background-color: #1e1700;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 620px){
+    #main{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------- RESPONSIVIDADE PARA OS TÍTILOS DAS OPÇOES DE MENU-----------------*/
+@media (max-width:802px){
+    #tradicionais, #artesanais, #doces, #combos{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 802px)and(max-width:890px){
+    #tradicionais, #artesanais, #doces, #combos{
+        padding-left: 1px;
+        padding-right: 1px;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+
+/*RESPONSIVIDADE DOS CARDS DAS OPÇÕES DE MENU*/
+#tradicionais, #artesanais, #doces, #combos{
+    max-width: 1250px;
+}
+
+#carrosel-imagens img{
+    max-width: 1250px;
+}
+
+@media (min-width:820px) and (max-width:1370px){
+    #opcoesMenu{
+        max-width: 800px;
+    }
+}
+@media (min-width:1369px){
+    #opcoesMenu{
+        max-width: 1200px;
+    }
+}
+
+
+
+#conteudoCabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    max-width: 1250px;
+}
+
+@media (min-width:820px) and (max-width:1370px){
+    #tradicionais, #artesanais, #doces, #combos{
+        max-width: 821px;
+    }
+}
+
+@media (min-width:1370px){
+    #tradicionais, #artesanais, #doces, #combos{
+        max-width: 1250px;
+    }
+}
+
+@media (max-width:410px){
+    #tradicionais, #artesanais, #doces, #combos{
+        width: 100%;
+    }
+    #bt1,#bt2, #bt3, #bt4{
+        width: 100%;
+    }
+    #ba1, #ba2, #ba3{
+        width: 100%;
+    }
+    #bd1, #bd2, #bd3{
+        width: 100%;
+    }
+    #c1, #c2, #c3{
+        width: 100%;
+    }
+}
+
+#bt1{
+    transition: all 0.4s ease;   
+}
+#bt1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bt2{
+    transition: all 0.4s ease;   
+}
+#bt2:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bt3{
+    transition: all 0.4s ease;   
+}
+#bt3:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bt4{
+    transition: all 0.4s ease;   
+}
+#bt4:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#ba1{
+    transition: all 0.4s ease;   
+}
+#ba1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#ba2{
+    transition: all 0.4s ease;   
+}
+#ba2:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#ba3{
+    transition: all 0.4s ease;   
+}
+#ba3:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bd1{
+    transition: all 0.4s ease;   
+}
+#bd1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bd2{
+    transition: all 0.4s ease;   
+}
+#bd2:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#bd3{
+    transition: all 0.4s ease;   
+}
+#bd3:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#c1{
+    transition: all 0.4s ease;   
+}
+#c1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#c2{
+    transition: all 0.4s ease;   
+}
+#c2:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+#c3{
+    transition: all 0.4s ease;   
+}
+#c3:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.352);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ESTILO DO ÍCONE DE CHECADO*/
+.checado{
+    position: absolute;
+    color: green;
+    font-size: 35px;
+    font-weight: bolder;
+    top: 0%;
+    right: 17%;
+}
+#checado_simples1, 
+#checado_simples2, 
+#checado_simples3, 
+#checado_simples4, 
+#checado_espeto1, 
+#checado_espeto2, 
+#checado_espeto3,
+#checado_sobremesa1,
+#checado_sobremesa2,
+#checado_sobremesa3,
+#checado_bebida1,
+#checado_bebida2,
+#checado_bebida3{
+    display: none;
+}
+
+#desabilita_botao{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#aviso_desblock_botao{
+    display: flex;
+    width: 300px;
+    height: 100px;
+    background-color: white;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.188);
+    text-align: left;
+    border-top-right-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    gap: 10px;
+    overflow: hidden;
+}
+#aviso_desblock_botao p{
+    font-size: 10pt;
+}
+
+#aviso_desblock_botao i{
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+/*ESTILO REFERENTE AO HISTÓRICO DE COMPRAS*/
+#historico_compras{
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#mostraHistorico{
+    cursor: pointer;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+}
+
+#mostraHistorico:hover{
+    background-color: #1e1700;
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+#historico_compras > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 20px 20px;
+}
+
+#historico_compras > div #fecha_historico{
+    cursor: pointer;
+    font-size: 30px;
+}
+
+
+
+.tabela{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabela th{
+    border: 1px solid black;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tabela td{
+    border: 1px solid black;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#botao_home{
+    border: none;
+    background-color: #f1f1f1;
+    width: 160px;
+    padding: 10px 5px 10px 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;   
+    font-size: 16px;
+}
+#botao_home:hover{
+    background-color: #ffbb03;
+}
+
+#botao_apaga_hidtorico{
+    border: none;
+    background-color: #f1f1f1;
+    width: 160px;
+    padding: 10px 5px 10px 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+#botao_apaga_hidtorico:hover{
+    background-color: rgb(255, 21, 0);
+    color: white; 
+}
+
+#btn_historico{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+@media(max-width:750px){
+    #historicos{
+        width: 400px;
+    }
+}
+
+#avisoHistorico{
+   text-align: center;
+}
